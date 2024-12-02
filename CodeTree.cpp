@@ -13,3 +13,24 @@ void displayMenu() {
   cout << "5. Display the codes in order" << endl;
   cout << "6. Quit" << endl;
 }
+
+int main() {
+  StringBinaryTree tree;
+  ifstream inputFile("codes.txt");
+  string code;
+
+  if (!inputFile) {
+    cout << "Error opening codes.txt" << endl;
+  return 1;
+  }
+
+  while (getline(inputFile, code)) {
+    tree.inserNode(code);
+  }
+  inputFile.close();
+
+  int choice;
+  string input, newCode;
+
+  
+    
