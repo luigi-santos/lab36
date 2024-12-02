@@ -1,12 +1,12 @@
 // Implementation file for the IntBinaryTree class
 #include <iostream>
-#include "IntBinaryTree.h"
+#include "StringBinaryTree.h"
 using namespace std;
 
 // insert accepts a TreeNode pointer and a pointer to a node.
 // The function inserts the node into the tree pointed to by 
 // the TreeNode pointer. This function is called recursively.
-void IntBinaryTree::insert(TreeNode *&nodePtr, TreeNode *&newNode) {
+void StringBinaryTree::insert(TreeNode*& nodePtr, TreeNode*& newNode) {
    if (!nodePtr)
       nodePtr = newNode;                  // Insert the node.
    else if (newNode->value < nodePtr->value)
@@ -17,12 +17,10 @@ void IntBinaryTree::insert(TreeNode *&nodePtr, TreeNode *&newNode) {
 
 // insertNode creates a new node to hold num as its value,
 // and passes it to the insert function.                  
-void IntBinaryTree::insertNode(int num) {
-   TreeNode *newNode;      // Pointer to a new node.
+void StringBinaryTree::insertNode(const string& str) {
+   TreeNode* newNode = new TreeNode;      // Pointer to a new node.
 
-   // Create a new node and store num in it.
-   newNode = new TreeNode;
-   newNode->value = num;
+   newNode->value = str;
    newNode->left = newNode->right = nullptr;
    
    // Insert the node.
