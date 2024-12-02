@@ -32,5 +32,29 @@ int main() {
   int choice;
   string input, newCode;
 
-  
+  do {
+    displayMenu();
+    cout << "Enter choice: ";
+    cin >> choice;
+    cin.ignore();
+
+    switch (choice) {
+    case 1:
+      cout << "Enter a code to add: ";
+      getline(cin, input);
+      tree.insertNode(input);
+      break;
+    case 2:
+      cout << "Enter a code to delete: ";
+      getline(cin, input);
+      tree.iremove(input);
+      break;
+    case 3:
+      cout << "Enter a code to search for: ";
+      getline(cin, input);
+      if (tree.isearchNode(input))
+        cout << "Code found." << endl;
+      else
+        cout << "Code not found" << endl;
+      break;
     
