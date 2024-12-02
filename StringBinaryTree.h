@@ -1,13 +1,15 @@
 // Specification file for the IntBinaryTree class
-#ifndef INTBINARYTREE_H
-#define INTBINARYTREE_H
+#ifndef STRINGBINARYTREE_H
+#define STRINGBINARYTREE_H
 
-// The IntBinaryTree class manages a binary tree of integers.
-class IntBinaryTree {
+#include <string>
+using namespace std;
+
+class StringBinaryTree {
 private:
    // TreeNode is a private structure for IntBinaryTree nodes.
    struct TreeNode {
-      int value;         // The value in the node
+      string value;         // The value in the node
       TreeNode *left;    // Pointer to left child node
       TreeNode *right;   // Pointer to right child node
    };
