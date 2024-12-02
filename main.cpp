@@ -57,4 +57,24 @@ int main() {
       else
         cout << "Code not found" << endl;
       break;
-    
+    case 4:
+      cout << "Enter a code to modify: ";
+      getline(cin, input);
+      cout << "Enter new code: ";
+      getline(cin, newCode);
+      tree.modifyNode(input, newCode);
+      break;
+    case 5:
+      cout << "Displaying codes in order: " << endl;;
+      tree.displayInOrder();
+      break;
+    case 6:
+      cout << "Exiting.";
+      break;
+    default:
+      cout << "Invalid. Try again." << endl;
+    }
+  } while (choice != 6);
+
+  return 0;
+}
