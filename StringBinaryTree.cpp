@@ -110,6 +110,14 @@ void StringBinaryTree::makeDeletion(TreeNode*& nodePtr) {
    }
 }
 
+void StringBinaryTree::modifyNode(const string& oldstr, const string& newstr) {
+   if (searchNode(oldstr)) {
+      remove(oldstr);
+      insertNode(newstr);
+   } else {
+      cout << "Node not found." << endl;
+   }
+}
 // The displayInOrder member function displays the values       
 // in the subtree pointed to by nodePtr, via inorder traversal. 
 void StringBinaryTree::displayInOrder(TreeNode* nodePtr) const {
