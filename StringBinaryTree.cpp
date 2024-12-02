@@ -29,7 +29,7 @@ void StringBinaryTree::insertNode(const string& str) {
 
 // destroySubTree is called by the destructor. It
 // deletes all nodes in the tree.                
-void IntBinaryTree::destroySubTree(TreeNode *nodePtr) {
+void StringBinaryTree::destroySubTree(TreeNode* nodePtr) {
    if (nodePtr) {
       if (nodePtr->left)
          destroySubTree(nodePtr->left);
@@ -43,13 +43,13 @@ void IntBinaryTree::destroySubTree(TreeNode *nodePtr) {
 // searchNode determines if a value is present in  
 // the tree. If so, the function returns true.     
 // Otherwise, it returns false.                    
-bool IntBinaryTree::searchNode(int num) {
-   TreeNode *nodePtr = root;
+bool StringBinaryTree::searchNode(const string& str) {
+   TreeNode* nodePtr = root;
 
    while (nodePtr)    {
-      if (nodePtr->value == num)
+      if (nodePtr->value == str)
          return true;
-      else if (num < nodePtr->value)
+      else if (str < nodePtr->value)
          nodePtr = nodePtr->left;
       else
          nodePtr = nodePtr->right;
@@ -59,17 +59,17 @@ bool IntBinaryTree::searchNode(int num) {
 
 // remove calls deleteNode to delete the      
 // node whose value member is the same as num.
-void IntBinaryTree::remove(int num) {
-   deleteNode(num, root);
+void StringBinaryTree::remove(const string& str) {
+   deleteNode(str, root);
 }
 
 // deleteNode deletes the node whose value 
 // member is the same as num.              
-void IntBinaryTree::deleteNode(int num, TreeNode *&nodePtr) {
-   if (num < nodePtr->value)
+void StringBinaryTree::deleteNode(const string str, TreeNode*& nodePtr) {
+   if (str < nodePtr->value)
       deleteNode(num, nodePtr->left);
-   else if (num > nodePtr->value)
-      deleteNode(num, nodePtr->right);
+   else if (str > nodePtr->value)
+      deleteNode(str, nodePtr->right);
    else
       makeDeletion(nodePtr);
 }
@@ -78,10 +78,10 @@ void IntBinaryTree::deleteNode(int num, TreeNode *&nodePtr) {
 // makeDeletion takes a reference to a pointer to the node 
 // that is to be deleted. The node is removed and the      
 // branches of the tree below the node are reattached.     
-void IntBinaryTree::makeDeletion(TreeNode *&nodePtr) {
+void StringBinaryTree::makeDeletion(TreeNode*& nodePtr) {
    // Define a temporary pointer to use in reattaching
    // the left subtree.
-   TreeNode *tempNodePtr;
+   TreeNode* tempNodePtr;
 
    if (!nodePtr)
       cout << "Cannot delete empty node.\n";
@@ -112,7 +112,7 @@ void IntBinaryTree::makeDeletion(TreeNode *&nodePtr) {
 
 // The displayInOrder member function displays the values       
 // in the subtree pointed to by nodePtr, via inorder traversal. 
-void IntBinaryTree::displayInOrder(TreeNode *nodePtr) const {
+void StringBinaryTree::displayInOrder(TreeNode* nodePtr) const {
    if (nodePtr) {
       displayInOrder(nodePtr->left);
       cout << nodePtr->value << endl;
@@ -122,7 +122,7 @@ void IntBinaryTree::displayInOrder(TreeNode *nodePtr) const {
 
 // The displayPreOrder member function displays the values      
 // in the subtree pointed to by nodePtr, via preorder traversal.
-void IntBinaryTree::displayPreOrder(TreeNode *nodePtr) const {
+void StringBinaryTree::displayPreOrder(TreeNode *nodePtr) const {
    if (nodePtr) {
       cout << nodePtr->value << endl;
       displayPreOrder(nodePtr->left);     
@@ -132,7 +132,7 @@ void IntBinaryTree::displayPreOrder(TreeNode *nodePtr) const {
 
 // The displayPostOrder member function displays the values     
 // in the subtree pointed to by nodePtr, via postorder traversal.
-void IntBinaryTree::displayPostOrder(TreeNode *nodePtr) const {
+void StringBinaryTree::displayPostOrder(TreeNode *nodePtr) const {
    if (nodePtr) {
       displayPostOrder(nodePtr->left);    
       displayPostOrder(nodePtr->right);
